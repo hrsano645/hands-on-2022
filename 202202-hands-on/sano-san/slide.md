@@ -1,6 +1,6 @@
 ---
 marp: true
-backgroundColor: #eee
+backgroundColor: #ddd
 ---
 
 ## PythonでExcelファイルを読んだり書いたりするハンズオン

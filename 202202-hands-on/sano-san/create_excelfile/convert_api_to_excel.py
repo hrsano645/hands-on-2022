@@ -18,7 +18,7 @@ def main() -> None:
     # jp.holiday apiからデータを生成
     jp_holiday_data_list = get_api_data(JP_HOLIDAY_API_URL)
     print(jp_holiday_data_list)
-
+    # 続きはハンズオン中に実装します
 
 
 if __name__ == "__main__":
