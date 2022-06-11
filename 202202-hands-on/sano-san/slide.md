@@ -1,13 +1,12 @@
 ---
 marp: true
-# header: "**ラズパイとDashで環境ダッシュボードを作ろう** PyCon JP 2021 2021/10/16"
 backgroundColor: #eee
 ---
 
 ## PythonでExcelファイルを読んだり書いたりするハンズオン
 
-はんなりPython
-2022/02/18
+はんなりPython 
+2022/06/17
 
 ---
 
@@ -29,8 +28,9 @@ backgroundColor: #eee
 ## FYI
 
 - 静岡Pythonコミュニティの勉強会 Python駿河/Unagi.py
-  - 2月は明日開催です！
-  - 詳しくはこちら: https://py-suruga.connpass.com/event/238467/
+  - 6月は25日開催です！
+  - なんとあの有名なパイのメーカーさんの施設で招待制リアル開催になりました🎉
+  - 同時生中継します。詳しくはこちら: https://py-suruga.connpass.com/event/250842/
 
 ---
 
@@ -46,33 +46,30 @@ backgroundColor: #eee
 
 - 普段手作業でやっていることをPythonでやらせてみる
   - 退屈なことはPy...（以下 オライリーで見てね
-- Excelを頑張るのはもうつらい
-  - （はずなのにlambda関数なんか入ったりするので楽しさはあるけど）
+- Excelを頑張るのはもうつらい。時間が無い
+  - （最近lambda関数やtypescriptを使える楽しさはあるけど）
 - 手作業によるミスやヒューマンエラーを防ぐ
-  - 3日前にしくじったので二度とやりたくない
+
+
+<!-- footer: ヒューマンエラーを無くすのが日々で大事だと思います -->
 
 ---
 
-## しくじり先生: 公開したくないExcelファイルをメールで送る
-
-↑の文章だけで戦慄する
+## しくじり先生: 公開したくない計算用Excelファイルをメールで送る
 
 詳しいことは言わない（言えない）
 
 - Excelで計算したものをPDF化変換してメール送付
-- 変換作業は自動化していた:
+- 変換作業は自動化していたが...
 メール送付時に不用意にExcelファイルは触らなくていい
-- 一部不備があったExcelファイルをメール送付前に編集
-→ **手作業してしまう（魔が差した**
-- 後はわかるな...
+  - 一部不備があったExcelファイルをメール送付前に  **手動で開いて編集** してしまう
+- 生成したPDFをメールに添付したつもりが…
 
-しかもこれ3日前やったんですね...
-
-<!-- _footer: もはやネタにするしかねえ -->
+<!-- _footer: 後はわかるな… -->
 
 ---
 
-一度や二度はあると思いますが、本題に戻ります
+まあ1度や2度はやりますよね😇
 
 ![irasutoya](https://4.bp.blogspot.com/-L8kmjYNX064/VsGsN2ctx1I/AAAAAAAA39o/NHU8Gnym2GE/s400/kaisya_samui_man.png)
 
@@ -93,10 +90,25 @@ backgroundColor: #eee
 
 ---
 
+## 今日使うツール
+
+- Python3.10
+  - （仮想環境の）venv上で作業します
+- windows 11
+- VSCode
+
+anacondaの方は頑張ってください！
+
+(conda createとかで仮想環境作れるはずであとはあんまり変わらないはずです)
+
+---
+
 ## 確認すること
 
 - Python 3.10は入ってる？
-- pip install openpyxl
+  - python3が動くか
+  - venvが動くか
+- venv上で `pip install openpyxl`
 - 今日利用する資料のDL先
   - git clone <https://github.com/hrsano645/hands-on-2022.git>
   - <https://github.com/hrsano645/hands-on-2022> から zip ダウンロード
@@ -105,20 +117,15 @@ backgroundColor: #eee
 
 ## PythonでExcelファイルを読み込む
 
----
-
-やること
+**やること**
 
 - 帳票的なExcelファイルを読み込む: 架空の業務っぽいファイルを使います
-- 読み込んだ帳票データをjsonファイルに書き出す
 
 ---
 
 ## PythonでExcelファイルを書き出す
 
----
-
-やること
+**やること**
 
 - 日本の祝日APIからデータを取得する
   - <https://holidays-jp.github.io>
